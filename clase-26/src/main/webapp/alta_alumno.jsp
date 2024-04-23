@@ -1,0 +1,33 @@
+<%@page session="true"%>
+<%@page errorPage="error.jsp"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!--  Especifica el prefijo que se utilizará para acceder a las etiquetas de la biblioteca importada. En este caso, el prefijo "c" se utilizará para acceder a las etiquetas de JSTL Core en el archivo JSP. -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!-- fmt: Este prefijo se utiliza para formatear y presentar datos, como fechas, números y mensajes. -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<!-- fn: Este prefijo se utiliza para acceder a las funciones de utilidad proporcionadas por JSTL, como operaciones de cadena, colección y manipulación de fechas. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alta de Alumno</title>
+</head>
+<body>
+    <h2>Session ID: <%=request.getSession().getId()%></h2>
+
+    <h2>Alta Alumno</h2>
+    <form action="AgregarAlumnoServlet" method="post">
+    	Legajo: <input type="text" name="legajo"><br>
+    	Nombre: <input type="text" name="nombre"><br>
+    	Edad: <input type="text" name="edad"><br>
+    	<input type="submit" value="Agregar Alumno">
+    </form>
+
+    <c:if test="${not empty mensaje}">
+    	<h3>${mensaje}</h3>
+    </c:if>
+
+    <hr>
+    <h3><a href="index.jsp">Home</a></h3>
+</body>
+</html>
